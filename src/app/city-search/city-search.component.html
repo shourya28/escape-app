@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+          <input
+            type="text"
+            (keyup)="getSomeCities($event)"
+            (click)="getSelectedCity($event)"
+            list="dynamicCityList"
+            >
+            <datalist id="dynamicCityList" >
+              <option  *ngFor="let city of cities" [value]="city.id" >{{city.id}}</option>
+            </datalist>
+          <!-- <table>
+            <th>City Code</th>
+            <tr *ngFor="let city of cities">
+              <td>{{city.id}}</td>
+              <td>{{city.name}}</td>
+              <td>{{city.countryName}}</td>
+              <td>{{city.location.lat}}</td>
+              <td>{{city.location.lon}}</td>
+            </tr>
+          </table> -->
+        </div>
+    </div>
+</div>
+
+<!-- // "BBA": {
+  //   "id": "BBA",
+  //   "name": "Balmaceda",
+  //   "location": { "lat": -45.909431, "lon": -71.69762 },
+  //   "countryName": "Chile",
+  //   "iata": "BBA",
+  //   "rank": 93,
+  //   "countryId": "CL",
+  //   "dest": null,
+  //   "airports": ["BBA"],
+  //   "images": ["4.jpg", "5.jpg"],
+  //   "popularity": 5.00001,
+  //   "regId": "southern-america",
+  //   "contId": "south-america",
+  //   "subId": null,
+  //   "terId": null,
+  //   "con": 5 -->

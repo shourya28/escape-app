@@ -1,0 +1,12 @@
+<table>
+  <!-- <p *ngFor="let city of citiesData.splice(0, 10)">{{ city.id }}</p> -->
+  <table>
+    <th>city</th>
+    <th>id</th>
+    <tr *ngFor="let city of citiesData.splice(10, 10)">
+      <td>{{city.name}}</td>
+      <td>{{city.id}}</td>
+      <td>{{city.location.lat}}</td>
+    </tr>
+  </table>
+</table>

@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <mat-form-field>
+        <mat-label>City</mat-label>
+        <input
+          class="example-form"
+          matInput
+          (keyup)="getSomeCities($event)"
+          [matAutocomplete]="auto"
+        />
+      </mat-form-field>
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="getSelectedCity($event)"
+      >
+        <mat-option *ngFor="let option of cities" [value]="option.id">
+          {{ option.id }} : {{ option.name }}
+        </mat-option>
+      </mat-autocomplete>
+
+      <table *ngIf="serverString.length>0" class="styled-table">
+        <thead>
+          <tr>
+            <th>Sr. No.</th>
+            <th>Name</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let object of serverString| slice:0:7; index as i">
+            <td>{{ i }}</td>
+            <td>{{ prettyContinentName(object.contId) }}</td>
+            <td>{{ object.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="serverString.length > 0" class="centered">
+        <strong> Distance Travelled :</strong> {{ serverString[7].totalDistance }} kms
+      </p>
+    </div>
+  </div>
+</div>
